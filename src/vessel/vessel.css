@@ -1,0 +1,354 @@
+.vessel-demo {
+    min-height: 100vh;
+    padding: 44px 50px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    color: white;
+  }
+  
+  .vessel-copy {
+    position: relative;
+    z-index: 20;
+    max-width: 660px;
+  }
+  
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    opacity: .6;
+  }
+  
+  .vessel-copy h1 {
+    margin: 12px 0 8px;
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: .95;
+  }
+  
+  .vessel-copy p {
+    margin: 0;
+    max-width: 520px;
+    font-size: 17px;
+    line-height: 1.5;
+    opacity: .72;
+  }
+  
+  .process-status {
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.07);
+  }
+  
+  .live-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #777;
+  }
+  
+  .live-dot.running {
+    background: #5DB540;
+    box-shadow: 0 0 14px rgba(93,181,64,.7);
+  }
+  
+  .reactor-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 620px;
+  }
+  
+  .reactor-motor {
+    position: absolute;
+    top: 48px;
+    width: 118px;
+    height: 96px;
+    border-radius: 20px 20px 8px 8px;
+    background:
+      linear-gradient(
+        145deg,
+        #2d3337,
+        #111416
+      );
+    box-shadow:
+      0 16px 30px rgba(0,0,0,.38),
+      inset 0 1px 0 rgba(255,255,255,.08);
+    z-index: 9;
+  }
+  
+  .reactor-vessel {
+    position: relative;
+    width: min(390px, 48vw);
+    height: 500px;
+    margin-top: 60px;
+    overflow: hidden;
+    border-radius: 54px 54px 72px 72px;
+    border: 4px solid rgba(226,241,249,.62);
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.19) 17%,
+        rgba(255,255,255,.035) 36%,
+        rgba(255,255,255,.12) 70%,
+        rgba(255,255,255,.03)
+      );
+    box-shadow:
+      inset 0 0 45px rgba(255,255,255,.08),
+      inset 0 -30px 80px rgba(7,18,27,.36),
+      0 35px 80px rgba(0,0,0,.44);
+  }
+  
+  .reactor-liquid {
+    position: absolute;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    overflow: hidden;
+    border-radius: 0 0 62px 62px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(57,148,205,.78),
+        rgba(22,91,142,.88)
+      );
+    transition: height .8s ease;
+  }
+  
+  .foam-layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    min-height: 3px;
+    background:
+      radial-gradient(
+        circle at 10% 90%,
+        rgba(255,255,255,.95) 0 4px,
+        transparent 5px
+      ),
+      radial-gradient(
+        circle at 25% 70%,
+        rgba(255,255,255,.82) 0 6px,
+        transparent 7px
+      ),
+      radial-gradient(
+        circle at 47% 80%,
+        rgba(255,255,255,.9) 0 5px,
+        transparent 6px
+      ),
+      radial-gradient(
+        circle at 72% 70%,
+        rgba(255,255,255,.82) 0 7px,
+        transparent 8px
+      ),
+      rgba(235,248,255,.74);
+    transition: height .8s ease;
+    z-index: 4;
+  }
+  
+  .bubble-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  
+  .demo-bubble {
+    position: absolute;
+    bottom: -16px;
+    width: 7px;
+    height: 7px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+    opacity: .7;
+    animation: bubbleRise linear infinite;
+  }
+  
+  @keyframes bubbleRise {
+    from {
+      transform: translateY(0) scale(.75);
+      opacity: 0;
+    }
+  
+    15% {
+      opacity: .78;
+    }
+  
+    to {
+      transform:
+        translateY(-430px)
+        translateX(12px)
+        scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  .agitator-shaft {
+    position: absolute;
+    top: 0;
+    bottom: 73px;
+    left: 50%;
+    width: 8px;
+    transform: translateX(-50%);
+    background:
+      linear-gradient(
+        90deg,
+        #566067,
+        #f1f3f4,
+        #69747b
+      );
+    z-index: 4;
+  }
+  
+  .probe {
+    position: absolute;
+    top: 34px;
+    width: 8px;
+    height: 270px;
+    border-radius: 999px;
+    background:
+      linear-gradient(
+        90deg,
+        #59636a,
+        #f6f8f9,
+        #606a70
+      );
+    z-index: 7;
+  }
+  
+  .probe-left {
+    left: 30%;
+    transform: rotate(2deg);
+  }
+  
+  .probe-right {
+    right: 29%;
+    transform: rotate(-3deg);
+  }
+  
+  .rushton-impeller {
+    position:absolute;
+    left:50%;
+    bottom:62px;
+    width:132px;
+    height:38px;
+    margin-left:-66px;
+    z-index:5;
+    transform-style:preserve-3d;
+    perspective:500px;
+    transform-origin:center center;
+  }
+  
+  .rushton-impeller.spinning {
+    animation:rushtonSpin linear infinite;
+  }
+  
+  @keyframes rushtonSpin {
+    from { transform:rotateY(0deg); }
+    to { transform:rotateY(360deg); }
+  }
+  
+  .rushton-disc {
+    position:absolute;
+    left:26px;
+    top:13px;
+    width:80px;
+    height:12px;
+    border-radius:50%;
+    background:
+      linear-gradient(
+        to bottom,
+        #e3e7e9,
+        #88949b 45%,
+        #505a60 70%,
+        #bec6ca
+      );
+    box-shadow:0 3px 5px rgba(0,0,0,.45);
+    z-index:2;
+  }
+  
+  .rushton-blade {
+    position:absolute;
+    top:9px;
+    width:39px;
+    height:20px;
+    background:
+      linear-gradient(
+        to bottom,
+        #dfe4e7,
+        #8b969d 55%,
+        #535d63
+      );
+    box-shadow:
+      inset 0 2px 2px rgba(255,255,255,.25),
+      0 2px 4px rgba(0,0,0,.35);
+    z-index:1;
+  }
+  
+  .blade-left {
+    left:0;
+    border-radius:6px 2px 2px 6px;
+    transform:
+      perspective(150px)
+      rotateX(6deg);
+  }
+  
+  .blade-right {
+    right:0;
+    border-radius:2px 6px 6px 2px;
+    transform:
+      perspective(150px)
+      rotateX(-6deg);
+  }
+  
+  .rushton-hub {
+    position:absolute;
+    left:50%;
+    top:8px;
+    width:22px;
+    height:22px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:
+      radial-gradient(
+        circle at 35% 30%,
+        #f4f5f5,
+        #858f95 60%,
+        #394147
+      );
+    box-shadow:0 2px 4px rgba(0,0,0,.5);
+    z-index:4;
+  }
+  
+  .vessel-metrics {
+    position: absolute;
+    bottom: 22px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .vessel-metrics > div {
+    min-width: 90px;
+    padding: 9px 12px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 10px;
+    background: rgba(17,21,24,.72);
+    backdrop-filter: blur(8px);
+  }
+  
+  .vessel-metrics strong {
+    font-size: 20px;
+  }
+  
+  .vessel-metrics span {
+    font-size: 11px;
+    opacity: .65;
+  }
+  

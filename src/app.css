@@ -1,0 +1,71 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #171a1d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.demo-page {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 62fr 38fr;
+}
+
+.experiment-panel,
+.genesys-panel {
+  min-width: 0;
+  min-height: 100vh;
+}
+
+.experiment-panel {
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #30383e 0%,
+      #20262b 48%,
+      #15191d 100%
+    );
+}
+
+.genesys-panel {
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background:
+    radial-gradient(
+      circle at center,
+      #2b3034 0%,
+      #191d20 70%
+    );
+}
+
+@media (max-width: 1350px) {
+  .demo-page {
+    grid-template-columns: 58fr 42fr;
+  }
+}
+
+@media (max-width: 950px) {
+  .demo-page {
+    display: block;
+  }
+
+  .experiment-panel,
+  .genesys-panel {
+    min-height: 100vh;
+  }
+}
