@@ -21,6 +21,29 @@ export interface AutomaticControls {
   antifoam: boolean;
 }
 
+export interface ProgramRow {
+  id: string;
+  timeMinutes: number;
+  temperature: number;
+  pH: number;
+  pO2: number;
+}
+
+export interface MonitoringPoint {
+  timestamp: string;
+  cycleSeconds: number;
+  rpm: number;
+  air: number;
+  acid: number;
+  base: number;
+  antifoam: number;
+  feed: number;
+  temperature: number;
+  pH: number;
+  pO2: number;
+  foam: number;
+}
+
 export interface GenesysState {
   running: boolean;
   cycleSeconds: number;
@@ -49,6 +72,9 @@ export interface GenesysState {
   emptyFill: PumpState;
 
   automatic: AutomaticControls;
+
+  programEnabled: boolean;
+  programRows: ProgramRow[];
 }
 
 export interface HistoryCycle {

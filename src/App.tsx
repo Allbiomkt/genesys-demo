@@ -7,13 +7,15 @@ export default function App() {
 
   return (
     <main className="demo-page">
-      <section className="experiment-panel">
-        <VesselDemo simulator={simulator} />
-      </section>
+      <div className="demo-shell">
+        <section className="experiment-panel">
+          <VesselDemo simulator={simulator} />
+        </section>
 
-      <section className="genesys-panel">
-        <GenesysPanel simulator={simulator} />
-      </section>
+        <section className="genesys-panel">
+          <GenesysPanel simulator={simulator} />
+        </section>
+      </div>
     </main>
   );
 }
